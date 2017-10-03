@@ -1,0 +1,23 @@
+
+<div class='login'>
+  <h2>Register</h2>
+  <form>
+  <span style="color:red">{{exception.message}}</span>
+  <input ng-model='user.username' placeholder='Username' type='text'>
+  <span style="color:red">{{duplicateUser.message}}</span>
+  <input id='pw' ng-model='user.password' placeholder='Password' type='password'>
+  <input ng-model='user.email' placeholder='E-Mail Address' type='email'>
+  <span style="color:red">{{duplicateEmail.message}}</span>
+  <input ng-model='user.firstname' placeholder='First name' type='text'>
+	<input ng-model='user.lastname' placeholder='Last name' type='text'>  
+	<input ng-model='user.phonenumber' placeholder='Phone' type='text'>  
+	<select ng-model='user.role' required>
+	<option value="" disabled selected>Select Role</option>
+  <option  value="STUDENT">Student</option>
+  <option  value="ALUMINI">Alumini</option>
+  <option  value="EMPLOYEE">Employee</option>
+</select>
+  <input class='animated' type='submit' value='Register' ng-click="registerUser()">
+  </form>
+  <a class='forgot' href='#!login'>Already have an account?</a>
+</div>
