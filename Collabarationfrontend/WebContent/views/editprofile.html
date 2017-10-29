@@ -1,0 +1,26 @@
+<div class='login'>
+  <h2>Register</h2>
+  <form>
+ <label>Username</label>
+  <input ng-model='user.username' placeholder='Username' type='text' disabled>
+  <label>Password</label>
+  <input id='pw' ng-model='user.password' placeholder='Password' type='password'>
+  <label>Email</label>
+  <input ng-model='user.email' placeholder='E-Mail Address' type='email'>
+  <label>Firstname</label>
+  <input ng-model='user.firstname' placeholder='First name' type='text'>
+  <label>Lastname</label>
+	<input ng-model='user.lastname' placeholder='Last name' type='text'> 
+	<label>Phone</label> 
+	<input ng-model='user.phonenumber' placeholder='Phone' type='text'>
+	<label>Role</label>  
+	<select ng-model='user.role' placeholder='Role'>
+  <option  value="STUDENT">Student</option>
+  <option  value="ALUMINI">Alumini</option>
+  <option  value="EMPLOYEE">Employee</option>
+</select>
+  <input class='animated' type='submit' value='Register' ng-click="updateUser()">
+ 
+  </form>
+
+</div>

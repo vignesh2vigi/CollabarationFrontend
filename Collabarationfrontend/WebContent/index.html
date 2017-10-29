@@ -113,7 +113,7 @@ html, body {
 } /* END Media Query */
 </style>
 </head>
-<body ng-app="myApp">
+<body ng-app="app">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -130,69 +130,69 @@ html, body {
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-         <li><a href="#!home"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Dashboard</a></li>
-         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tasks <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#!login"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Overview</a></li>
-            <li><a href="#!register"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Task</a></li>
+         <li><a href="#!home"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>Home</a></li>
+         <li>
+          <a href="#!register" ng-hide="currentUser.username" role="button">REGISTER<span></span></a>
+          <!-- <ul class="dropdown-menu">
+            <li><a href=""><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Overview</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Task</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Categories</a></li>
-          </ul>
+          </ul> -->
         </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contacts <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+        <li>
+          <a href="#!login" ng-hide="currentUser.username" role="button" aria-haspopup="true" aria-expanded="false">LOGIN</a>
+          <!-- <ul class="dropdown-menu">
             <li><a href="#">Übersicht</a></li>
             <li><a href="#">New Contact</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Categories</a></li>
-          </ul>
+          </ul> -->
         </li>
-      <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notes <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+      <li>
+          <a href="#!editprofile"  ng-show="currentUser.username" role="button" aria-haspopup="true" aria-expanded="false">Edit Profiles</a>
+          <!-- <ul class="dropdown-menu">
             <li><a href="#">Overview</a></li>
             <li><a href="#">New Notiz</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Notebooks</a></li>
+          </ul> -->
+      </li>
+       <li><a href="" ng-show="currentUser.username"> Welcome {{currentUser.username}}</a></li>
+      <li><a href="" ng-show="currentUser.username" ng-click="logout()">Logout</a></li>
+      
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.online">Blog<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#!addblogpost">Add blog</a></li>
+             <li><a href="#!/getblogs">view BlogPost</a></li>
           </ul>
       </li>
-      <li><a href="#">Accounts</a></li>
       <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learnings <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.username">Job<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Overview</a></li>
-            <li><a href="#">New Learning</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Categories</a></li>
-          </ul>
-      </li>
-      <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Overview</a></li>
-            <li><a href="#">New Entry</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Topics</a></li>
+             <li><a href="#!addjob" ng-show="currentUser.role=='ADMIN'" >Add Job</a></li>
+			 <li><a href="#!/getalljobs" >view Jobs</a></li>
           </ul>
       </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+      <li><a href="#!uploadprofilepic" ng-show="currentUser.online"><img src="http://localhost:7082/Collabarationmiddleware/getimage/{{currentUser.username}}" class="img-circle" height="30px" width="30px"alt="Upload" ></a></li>
+      
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> Links<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="http://www.google.ch" target="_blank">My Webmail</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="http://www.google.ch" target="_blank">Timelogger</a></li>
-            <li><a href="http://www.cubetech.ch" target="_blank">cubetech.ch</a></li>
+           
          </ul>
         </li>
          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Jack Bass<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="http://www.fgruber.ch/" target="_blank"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> User Settings</a></li>
-            <li><a href="/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
+            
+           
          </ul>
         </li>
       </ul>
@@ -201,13 +201,22 @@ html, body {
 </nav>
 
 
-<div ng-view></div>
+<div  ng-view></div>
 
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.js"></script> -->
+<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
+<script type="text/javascript" src="js/angular-cookies.js"></script>
 
 <script type="text/javascript" src="js/Mainroute.js"></script>
-<script type="text/javascript" src="controller/Usercontroller.js"></script>
-<script type="text/javascript" src="service/UserService.js"></script>
+<script type="text/javascript" src="controller/usercontroller.js"></script>
+<script type="text/javascript" src="service/userservice.js"></script>
+<script type="text/javascript" src="service/blogpostservice.js"></script>
+<script type="text/javascript" src="controller/blogpostcontroller.js"></script>
+<script type="text/javascript" src="controller/blogpostdetailcontroller.js"></script>
+<script type="text/javascript" src="controller/jobcontroller.js"></script>
+<script type="text/javascript" src="service/jobservice.js"></script>
 </html>

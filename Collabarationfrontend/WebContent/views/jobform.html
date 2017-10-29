@@ -1,0 +1,31 @@
+<div class="container">
+  <span style='color:red'>{{error}}</span><form>
+<div class="form-group">
+<label>Enter the value for JobTitle</label>
+<input type="text" ng-model="job.jobTitle" class="form-control">
+</div>
+
+<div class="form-group">
+<label>Enter the value for JobDescription</</label>
+<textarea ng-model="job.jobDescription" class="form-control"></textarea>
+</div>
+
+<div class="form-group">
+<label>Enter the value for SkillsRequired</label>
+<input type="text" ng-model="job.skillsRequired" class="form-control">
+</div>
+<div class="form-group">
+<label>Enter the value for Salary </label>
+<input type="text" ng-model="job.salary" class="form-control">
+</div>
+<div class="form-group">
+<label>Enter the value for Location"</label>
+<input type="text" ng-model="job.location" class="form-control">
+</div>
+<div class="form-group">
+<label>Enter the value for Companyname </label>
+<input type="text" ng-model="job.companyname" class="form-control">
+</div>
+<input type="submit" class="btn btn-info" value="Add Job" ng-click="addJob()">
+</form>
+</div>

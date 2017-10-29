@@ -1,0 +1,16 @@
+ <div class="container">
+    
+  <h2>Add Blog Post</h2>
+   <span style='color:red'>{{error.message}}</span>
+  <form>
+  <div class="form-group">
+    <input type="text"  ng-model="blog.blogTitle"title="Enter Blog Title" class="form-control">
+    </div>
+    <div class="form-group">
+    <textarea rows="5" cols="20" ng-model="blog.blogContent" title="Enter Blog Content" class="form-control" ></textarea>
+    </div>
+     <button type="submit" ng-click="addBlogPost()">Create Blog</button>
+    
+    
+  </form>
+</div><!--end log form -->

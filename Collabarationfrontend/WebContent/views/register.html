@@ -1,23 +1,115 @@
 
-<div class='login'>
-  <h2>Register</h2>
-  <form>
-  <span style="color:red">{{exception.message}}</span>
-  <input ng-model='user.username' placeholder='Username' type='text'>
-  <span style="color:red">{{duplicateUser.message}}</span>
-  <input id='pw' ng-model='user.password' placeholder='Password' type='password'>
-  <input ng-model='user.email' placeholder='E-Mail Address' type='email'>
-  <span style="color:red">{{duplicateEmail.message}}</span>
-  <input ng-model='user.firstname' placeholder='First name' type='text'>
-	<input ng-model='user.lastname' placeholder='Last name' type='text'>  
-	<input ng-model='user.phonenumber' placeholder='Phone' type='text'>  
-	<select ng-model='user.role' required>
-	<option value="" disabled selected>Select Role</option>
-  <option  value="STUDENT">Student</option>
-  <option  value="ALUMINI">Alumini</option>
-  <option  value="EMPLOYEE">Employee</option>
-</select>
-  <input class='animated' type='submit' value='Register' ng-click="registerUser()">
-  </form>
-  <a class='forgot' href='#!login'>Already have an account?</a>
+        <div class="container">
+    <span style='color:red' ng-if="error.code==1">{{error.message}}</span>
+
+   <!-- Text input-->
+
+<!-- <div class="form-group"> -->
+  <label class="col-md-4 control-label">First Name</label>  
+  <!-- <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
+  <input  ng-model="user.firstname" placeholder="First Name" class="form-control"  type="text">
+    <!-- </div>
+  </div>
+</div> -->
+
+<!-- Text input-->
+
+<!-- <div class="form-group"> -->
+  <label class="col-md-4 control-label" >Last Name</label> 
+   <!--  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
+  <input ng-model="user.lastname"  placeholder="Last Name" class="form-control"  type="text">
+    <!-- </div>
+  </div>
+</div> -->
+
+  <!-- <div class="form-group">  -->
+  <label class="col-md-4 control-label">Role</label>
+   <!--  <div class="col-md-4 selectContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span> -->
+    <select name="department" ng-model="user.role" class="form-control selectpicker">
+      <option value="">Select your Role</option>
+      <option >Fresher</option>
+      <option >Experiences</option>
+      <option >others</option>
+      
+    </select>
+ <!--  </div>
 </div>
+</div> -->
+  
+<!-- Text input-->
+
+<!-- <div class="form-group"> -->
+  <label class="col-md-4 control-label">Username</label>  
+  <!-- <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
+  <input  ng-model="user.username" placeholder="Username" class="form-control"  type="text">
+  <span style='color:red' ng-if="error.code==2">{{error.message}}</span>
+   <!--  </div>
+  </div>
+</div> -->
+
+<!-- Text input-->
+
+<!-- <div class="form-group"> -->
+  <label class="col-md-4 control-label" >Password</label> 
+   <!--  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
+  <input ng-model="user.password" placeholder="Password" class="form-control"  type="password">
+   <!--  </div>
+  </div>
+</div>
+ -->
+<!-- Text input-->
+
+      <!--  <div class="form-group"> -->
+  <label class="col-md-4 control-label">E-Mail</label>  
+   <!--  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span> -->
+  <input ng-model="user.email"placeholder="E-Mail Address" class="form-control"  type="text">
+    <span style='color:red' ng-if="error.code==3">{{error.message}}</span>
+  
+  <!--   </div>
+  </div>
+</div> -->
+
+
+<!-- Text input-->
+       
+<!-- <div class="form-group"> -->
+  <label class="col-md-4 control-label">Contact No.</label>  
+   <!--  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span> -->
+  <input ng-model="user.phonenumber" placeholder="(Number)" class="form-control" type="text">
+   <!--  </div>
+  </div>
+</div>
+ -->
+<!-- Select Basic -->
+
+<!-- Button -->
+<!-- <div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4"><br> -->
+   <button type="submit"   ng-click="registerUser()">SUBMIT</button>
+<!--   </div>
+</div> -->
+
+
+</div>
+    </div><!-- /.container -->
+    
+    
+   
+  
+
+ 
