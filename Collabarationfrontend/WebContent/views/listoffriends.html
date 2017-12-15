@@ -1,0 +1,80 @@
+<style>
+.row{
+margin-top: 90px;
+ 
+}
+/* body{
+     background: url(http://farm8.staticflickr.com/7702/17162850380_11f54369a0_h.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+.c-list {
+    padding: 0px;
+    min-height: 44px;
+}
+.title {
+    display: inline-block;
+    font-size: 1.7em;
+    font-weight: bold;
+    padding: 5px 15px;
+}
+ul.c-controls {
+    list-style: none;
+    margin: 0px;
+    min-height: 44px;
+}
+ul.c-controls li {
+    margin-top: 8px;
+    float: left;
+}
+ul.c-controls li a {
+    font-size: 1.7em;
+    padding: 11px 10px 6px;   
+}
+ul.c-controls li a i {
+    min-width: 24px;
+    text-align: center;
+}
+ul.c-controls li a:hover {
+    background-color: rgba(51, 51, 51, 0.2);
+}
+.name {
+    font-size: 1.7em;
+    font-weight: 700;
+}
+</style>
+<body>
+<div class="container">
+ <div class="row">
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading c-list">
+                    <span class="title">List of Friends</span>
+              </div>
+            <ul class="list-group" id="contact-list" ng-repeat="friend in friends">
+                    <li class="list-group-item">
+                        <div class="col-xs-12 col-sm-3" >
+                            <a href="#!friendprofile/{{friend.fromid}}" ng-if="currentUser.username!=friend.fromid"> <img src="http://localhost:7082/Collabarationmiddleware/getimage/{{friend.fromid}}"  class="img-responsive img-circle" /></a>
+ 							<a href="#!friendprofile/{{friend.toid}}" ng-if="currentUser.username!=friend.toid"> <img src="http://localhost:7082/Collabarationmiddleware/getimage/{{friend.toid}}"  class="img-responsive img-circle" /></a>
+                                         
+                        </div>
+                        <div class="col-xs-12 col-sm-9">
+                          <a href="#!friendprofile/{{friend.fromid}}"><span class="name" ng-if="currentUser.username!=friend.fromid">{{friend.fromid}} </span></a><br/>
+                           	<a href="#!friendprofile/{{friend.toid}}" > <span class="name" ng-if="currentUser.username!=friend.toid">{{friend.toid}} </span></a><br/>
+                           	<span ng-if="currentUser.username!=friend.fromid && mutualFriends[friend.fromid].length>0">{{mutualFriends[friend.fromid].length}} mutual friends</span>
+                           	<span ng-if="currentUser.username!=friend.fromid && mutualFriends[friend.fromid].length==0">No mutual friends</span>
+                             <span ng-if="currentUser.username!=friend.toid && mutualFriends[friend.toid].length>0">{{mutualFriends[friend.toid].length}} mutual friends</span>
+                           	<span ng-if="currentUser.username!=friend.toid && mutualFriends[friend.toid].length==0">No mutual friends</span>
+                             </div>
+                        <div class="clearfix"></div>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+	</div>
+ 
+</div>
+
+</body>

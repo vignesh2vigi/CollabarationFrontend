@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Chatroom</title>
+<title>Solution tech</title>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -10,7 +10,14 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400');
 
 html, body {
-  font-family: 'Lato', serif;  
+  /* font-family: 'Lato', serif;  */
+  font-family: 'open sans', helvetica, arial, sans;
+background:url(https://farm8.staticflickr.com/7525/15089648014_8a77e9de3e_o.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+ 
 }
 
 .navbar-default {
@@ -111,6 +118,40 @@ html, body {
     background-color: #005577;
   }
 } /* END Media Query */
+div.footer.navbar-fixed-bottom {
+	font-family: Raleway;
+	margin: 0 auto;
+	padding: 0em 0em;
+	text-align: center;
+	background: #306379;
+}
+div.footer.navbar-fixed-bottom span {
+	color: white;
+}
+.jumbotron {
+      background-color: #bdbdbd;
+      color: #fff;
+      padding: 100px 25px;
+  }
+  
+  .bg-grey {
+      background-color: #f6f6f6;
+  }
+  .logo-small {
+      color: #d50000;
+      font-size: 50px;
+  }
+  .logo {
+      color: #004d40;
+      font-size: 200px;
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+  }
+
 </style>
 </head>
 <body ng-app="app">
@@ -124,7 +165,7 @@ html, body {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">CORE</a>
+      <a class="navbar-brand" href="#">SOLUTION TECH</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -180,29 +221,48 @@ html, body {
       <li><a href="#!uploadprofilepic" ng-show="currentUser.online"><img src="http://localhost:7082/Collabarationmiddleware/getimage/{{currentUser.username}}" class="img-circle" height="30px" width="30px"alt="Upload" ></a></li>
       
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> Links<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"ng-show="currentUser.username"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Friend<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="http://www.google.ch" target="_blank">My Webmail</a></li>
-            <li role="separator" class="divider"></li>
+           <li><a href="#!suggestedusers">Suggested users</a></li>
+                                <li><a href="#!pendingrequests">Pending Requests</a></li>
+								<li><a href="#!getfriends">Friends({{noOfFriends}})</a></li>
            
          </ul>
         </li>
-         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Jack Bass<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="http://www.fgruber.ch/" target="_blank"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> User Settings</a></li>
-            
-           
-         </ul>
+        <!-- <li class=" dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-show="currentUser.username"> <span class="glyphicon glyphicon-user" ><span class="rw-number-notification" ng-if="pendingRequestsLength>0">{{pendingRequestsLength}} </span> </span></a>
+                            <ul class="dropdown-menu" ng-click="reset()">
+                                <li ng-repeat="request in pendingRequests">
+                               <a href="" > <table class="table table-stripped">
+                                <tr>
+                                <td>{{request.fromid}}</td>
+                                <td><a class="btn btn-primary" href="" ng-click="updatePendingRequest(request,'A')">Confirm</a></td>
+                                <td><a class="btn btn-danger" href="" ng-click="updatePendingRequest(request,'D')">Delete</a></td>
+                                </tr></table></a>
+                                </li>
+                                <li><a href=""><span ng-if="pendingRequestsLength==0">No friend requests </span></a></li>
+                            </ul>
+                        </li>
+          --><li >
+          <a href="#!chat" role="button" aria-haspopup="true" aria-expanded="false" ng-show="currentUser.username"><span class="glyphicon glyphicon-user" aria-hidden="true" ></span>Chat</a>
         </li>
+        <li> <a href="#!aboutus" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-earphone" aria-hidden="true" ></span> Contact</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
 
-<div  ng-view></div>
+<div  ng-view>
+</div>
 
+		<div class="footer navbar-fixed-bottom">
+				<span>
+				Copyright @ 2017 solutiontech.com. All Rights Reserved			
+				</span>
+		</div>
+
+	
+	
 </body>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
@@ -217,6 +277,12 @@ html, body {
 <script type="text/javascript" src="service/blogpostservice.js"></script>
 <script type="text/javascript" src="controller/blogpostcontroller.js"></script>
 <script type="text/javascript" src="controller/blogpostdetailcontroller.js"></script>
+<script type="text/javascript" src="controller/chatcontroller.js"></script>
 <script type="text/javascript" src="controller/jobcontroller.js"></script>
 <script type="text/javascript" src="service/jobservice.js"></script>
+<script type="text/javascript" src="service/chatservice.js"></script>
+<script type="text/javascript" src="service/friendservice.js"></script>
+<script type="text/javascript" src="controller/friendcontroller.js"></script>
+<script type="text/javascript" src="js/sockjs/sockjs.js"></script>
+<script type="text/javascript" src="js/stomp/stomp/dist/stomp.js"></script>
 </html>

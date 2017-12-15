@@ -5,6 +5,9 @@ app.config(function($routeProvider) {
 	.when("/home", {
         templateUrl : 'views/home.html'
     })
+    .when("/aboutus", {
+        templateUrl : 'views/aboutus.html'
+    })
     .when("/login",{
     	templateUrl:"views/login.html",
     	controller:'UserController'
@@ -40,7 +43,28 @@ app.config(function($routeProvider) {
 	.when('/uploadprofilepic', {
 		templateUrl : 'views/profilepicture.html', controller:'ProfilePictureController'
 	})
+	 .when("/suggestedusers", {
+        templateUrl : 'views/suggestedusers.html',
+        controller:'FriendController'
+    })
+    .when('/pendingrequests',{
+		templateUrl:'views/pendingRequests.html',
+		controller:'FriendController'
+	})
+	.when('/getfriends',{
+		templateUrl:'views/listoffriends.html',
+		controller:'FriendController'
+	})
+	.when("/friendprofile/:id", {
+        templateUrl : 'views/profile.html',
+        controller:'FriendController'
+    })
+	.when('/chat',{
+		templateUrl:'views/chat.html',
+		controller:'ChatCtrl'
+	})
 	
+    
 	.otherwise("/home",{templateurl:"views/home.html"})
 	
 	})

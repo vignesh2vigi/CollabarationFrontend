@@ -1,3 +1,23 @@
+<p>Search:</p><input type="text" ng-model="searchTxt">
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even){background-color: #f2f2f2}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+h3
+{
+color:#212121;
+}
+</style>
 <table class="table table-striped">
 <thead>
 <tr>
@@ -17,7 +37,7 @@
 </tbody>
 </table>
 
-<pre style="color:#616161;">
+<pre style="color:#616161;" ng-show="showJobDetails">
 JobTitle:{{job.jobTitle}}
 JobDescription:{{job.jobDescription}}
 SkillsRequired:{{job.skillsRequired}}
@@ -26,3 +46,6 @@ Location:{{job.location}}
 CompanyName:{{job.companyname}}
 PostedON:{{job.postedOn|date:'medium'}}
 </pre>
+<br>
+<h3><a href="#!home" ng-show="showJobDetails">Apply job</a></h3>
+<br>

@@ -9,7 +9,6 @@ app.controller('BlogPostDetailController',function($scope,$location,BlogPostServ
 	alert('blogpostdetailcontroller is initiated')
 	BlogPostService.getBlogPostById(id).then(function(response){
 		$scope.blogPost=response.data
-		$location.path('/home')
 	},function(response){
 		if(response.status==401)
 			$location.path('/login')
@@ -17,7 +16,7 @@ app.controller('BlogPostDetailController',function($scope,$location,BlogPostServ
 	
 	$scope.updateBlogPost=function(){
 		BlogPostService.updateBlogPost($scope.blogPost).then(function(response){
-			$location.path=('/getblogs')
+			$location.path('/getblogs')
 				},function(response){
 			console.log(response.data)
 			if(response.status==401)
@@ -26,9 +25,9 @@ app.controller('BlogPostDetailController',function($scope,$location,BlogPostServ
 	}
 	$scope.updateLikes=function(){
 		$scope.isLiked=!$scope.isLiked;
+		console.log('likes')
 		if($scope.isLiked){
 			$scope.blogPost.likes=$scope.blogPost.likes + 1
-			
 		}
 		else{
 			$scope.blogPost.likes=$scope.blogPost.likes - 1
